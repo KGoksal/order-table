@@ -1,0 +1,178 @@
+<!-- Name: Goksal, Kadir
+     Project #: (HTML 2: Tables and Forms)
+     Project Description: Create an order table and a form, style them with CSS, and set up form attributes . -->
+
+     <!DOCTYPE html>
+     <html lang="en">
+     <head>
+         <meta charset="UTF-8">
+         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+         <title>Order Management</title>
+         <style>
+             /* General Styles */
+             body {
+                 font-family: Arial, sans-serif;
+             }
+             .box {
+                 background-color: #607DBB;
+                 color: white;
+                 padding: 20px;
+                 margin-bottom: 20px;
+                 border-radius: 8px;
+             }
+             section {
+                 text-align: center;
+                 margin-bottom: 20px;
+             }
+     
+             /* Table Styles */
+             table {
+                 width: 100%;
+                 border-collapse: collapse;
+             }
+             th, td {
+                 padding: 8px;
+                 text-align: left;
+                 border-bottom: 1px solid #ddd;
+             }
+             th {
+                 background-color: #f2f2f2;
+             }
+             .status {
+                 font-weight: bold;
+                 padding: 4px 8px;
+                 border-radius: 4px;
+             }
+             .status-pending {
+                 background-color: #ffc107;
+                 color: #fff;
+             }
+             .status-confirmed {
+                 background-color: #28a745;
+                 color: #fff;
+             }
+             .status-shipped {
+                 background-color: #007bff;
+                 color: #fff;
+             }
+             .status-progressing {
+                 background-color: #17a2b8;
+                 color: #fff;
+             }
+             progress {
+                 width: 100%;
+             }
+     
+             /* Form Styles */
+             form {
+                 max-width: 400px;
+                 margin: 0 auto;
+                 padding: 20px;
+                 border: 1px solid #ccc;
+                 border-radius: 8px;
+             }
+             fieldset {
+                 border: none;
+                 padding: 0;
+                 margin: 0;
+             }
+             legend {
+                 font-weight: bold;
+                 margin-bottom: 10px;
+             }
+             label {
+                 display: block;
+                 margin-bottom: 8px;
+             }
+             input[type="text"],
+             input[type="email"],
+             input[type="submit"] {
+                 width: 100%;
+                 padding: 8px;
+                 margin-bottom: 10px;
+                 border: 1px solid #ccc;
+                 border-radius: 4px;
+                 box-sizing: border-box;
+             }
+             input[type="submit"] {
+                 background-color: #007bff;
+                 color: #fff;
+                 cursor: pointer;
+             }
+             input[type="submit"]:hover {
+                 background-color: #0056b3;
+             }
+         </style>
+     </head>
+     <body>
+     
+     <div class="box">
+         <h2>Data</h2>
+         <div class="box">
+             <section id="orders">
+                 <h3>Orders</h3>
+                 <table>
+                     <caption>Order Status</caption>
+                     <thead>
+                         <tr>
+                             <th>Order ID</th>
+                             <th>Customer Name</th>
+                             <th>Status</th>
+                             <th>Progress</th>
+                             <th>Date</th>
+                             <th>Country</th>
+                         </tr>
+                     </thead>
+                     <tbody>
+                         <tr>
+                             <td>1</td>
+                             <td>John Doe</td>
+                             <td><span class="status status-pending">Pending</span></td>
+                             <td><span class="status status-pending">0%</span><progress value="0" max="100"></progress></td>
+                             <td>2024-04-23</td>
+                             <td>USA</td>
+                         </tr>
+                         <tr>
+                             <td>2</td>
+                             <td>Jane Smith</td>
+                             <td><span class="status status-confirmed">Confirmed</span></td>
+                             <td><span class="status status-confirmed">100%</span><progress value="100" max="100"></progress></td>
+                             <td>2024-04-22</td>
+                             <td>Canada</td>
+                         </tr>
+                         <tr>
+                             <td>3</td>
+                             <td>Michael Johnson</td>
+                             <td><span class="status status-shipped">Shipped</span></td>
+                             <td><span class="status status-progressing">50%</span><progress value="50" max="100"></progress></td>
+                             <td>2024-04-21</td>
+                             <td>UK</td>
+                         </tr>
+                     </tbody>
+                 </table>
+             </section>
+         </div>
+     </div>
+     
+     <div class="box">
+         <h2>Revise</h2>
+         <div class="box">
+             <section id="filter-orders">
+                 <h3>Filter Orders</h3>
+                 <form method="POST" action="/submit_order">
+                     <fieldset>
+                         <legend>Place Order</legend>
+                         <label for="name">Name:</label>
+                         <input type="text" id="name" name="name" required>
+                         <label for="email">Email:</label>
+                         <input type="email" id="email" name="email" required>
+                         <input type="submit" value="Submit Order">
+                     </fieldset>
+                 </form>
+             </section>
+         </div>
+     </div>
+     
+     </body>
+     </html>
+     
